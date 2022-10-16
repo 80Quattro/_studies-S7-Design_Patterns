@@ -2,73 +2,69 @@ package pl.edu.wszib.lab01.builder;
 
 public class Person {
 
-    private String name;
-    private String familyName;
-    private String gender;
-    private Address address;
-    private Integer age;
+    private final String name;
+    private final String familyName;
+    private final Gender gender;
+    private final Address address;
+    private final Integer age;
 
-    private Person() {
-        
+    private Person(final String name,
+                   final String familyName,
+                   final Gender gender,
+                   final Address address,
+                   final Integer age) {
+        this.name = name;
+        this.familyName = familyName;
+        this.gender = gender;
+        this.address = address;
+        this.age = age;
+    }
+
+    public static Person.Builder builder() {
+        return new Person.Builder();
     }
 
     public static class Builder {
 
         private String name;
         private String familyName;
-        private String gender;
+        private Gender gender;
         private Address address;
         private Integer age;
-        private String city;
-        private String street;
-        private Integer no;
-        private String postCode;
 
-        public void setName(String name) {
+        public Person build() {
+            return new Person(name, familyName, gender, address, age);
+        }
+
+        public Builder setName(String name) {
             this.name = name;
+            return this;
         }
 
-        public void setFamilyName(String familyName) {
+        public Builder setFamilyName(String familyName) {
             this.familyName = familyName;
+            return this;
         }
 
-        public void setgender(String gender) {
+        public Builder setGender(Gender gender) {
             this.gender = gender;
+            return this;
         }
 
-        public void setAddress(Address address) {
+        public Builder setAddress(Address address) {
             this.address = address;
+            return this;
         }
 
-        public void setAge(Integer age) {
+        public Builder setAge(Integer age) {
             this.age = age;
+            return this;
         }
 
-        public void setCity(String city) {
-            this.city = city;
+        public Address.Builder addressBuilder() {
+            return Address.builder();
         }
 
-        public void setStreet(String street) {
-            this.street = street;
-        }
-
-        public void setNo(Integer no) {
-            this.no = no;
-        }
-
-        public void setPostCode(String postCode) {
-            this.postCode = postCode;
-        }
-    }
-
-    public Person build() {
-        Person person = new Person();
-        person.familyName = this.familyName;
-        person.gender = this.gender;
-        Address address1 = new Address.Builder;
-        person.address = this.address;
-        person.age = this.age;
-        return person;
     }
 
 }

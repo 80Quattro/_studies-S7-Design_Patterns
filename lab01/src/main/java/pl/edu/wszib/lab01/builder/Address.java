@@ -2,10 +2,10 @@ package pl.edu.wszib.lab01.builder;
 
 public class Address {
 
-    private String city;
-    private String street;
-    private Integer no;
-    private String postCode;
+    private final String city;
+    private final String street;
+    private final Integer no;
+    private final String postCode;
 
     private Address(
             final String city,
@@ -18,6 +18,10 @@ public class Address {
         this.postCode = postCode;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public static final class Builder {
 
         private String city;
@@ -25,26 +29,30 @@ public class Address {
         private Integer no;
         private String postCode;
 
-        public void setCity(String city) {
+        public Address build() {
+            return new Address(city, street, no, postCode);
+        }
+
+        public Builder setCity(String city) {
             this.city = city;
+            return this;
         }
 
-        public void setStreet(String street) {
+        public Builder setStreet(String street) {
             this.street = street;
+            return this;
         }
 
-        public void setNo(Integer no) {
+        public Builder setNo(Integer no) {
             this.no = no;
+            return this;
         }
 
-        public void setPostCode(String postCode) {
+        public Builder setPostCode(String postCode) {
             this.postCode = postCode;
+            return this;
         }
 
-    }
-
-    public Address build() {
-        return new Address(city, street, no, postCode);
     }
 
 }
