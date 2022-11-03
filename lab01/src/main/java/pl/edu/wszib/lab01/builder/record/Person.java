@@ -14,7 +14,7 @@ public record Person(
         return new AutoBuilder_Person_Builder();
     }
 
-    public static void male(
+    public static Person male(
         String firstName,
         String lastName,
         Integer age,
@@ -23,7 +23,7 @@ public record Person(
         return new Person(firstName, lastName, age, Gender.MALE, address);
     }
 
-    public static void female(
+    public static Person female(
         String firstName,
         String lastName,
         Integer age,
