@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Order {
 
-    private final String orderId;
-    private final List<OrderItem> items;
+    public final String orderId;
+    public final List<OrderItem> items;
 
     public Order(String orderId, List<OrderItem> items) {
         this.orderId = orderId;
