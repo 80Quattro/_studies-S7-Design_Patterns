@@ -9,8 +9,12 @@ public class Application {
         //LogAroundOrderServiceDecorator decoratedOrderService = new LogAroundOrderServiceDecorator(simpleOrderService);
         //decoratedOrderService.handle("Test name");
 
-        OrderService decoratedOrderService = new TestOrderServiceDecorator(new LogAroundOrderServiceDecorator(simpleOrderService));
-        decoratedOrderService.handle("Test name");
+        //OrderService decoratedOrderService = new TestOrderServiceDecorator(new LogAroundOrderServiceDecorator(simpleOrderService));
+        //decoratedOrderService.handle("Test name");
+
+        // TODO excercise: create Decorator which returns double value if name contains "test"
+        OrderService decoratedOrderService = new LogAroundOrderServiceDecorator(new DoubleIfTestDecorator(simpleOrderService));
+        decoratedOrderService.handle("test name");
     }
 
 }

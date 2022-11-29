@@ -16,6 +16,7 @@ public class LogAroundOrderServiceDecorator implements OrderService {
         log.info("handle method called with args[name = " + name + "]");
         Integer result = orderService.handle(name);
         log.info("handle method finished with result = " + result);
-        return null;
+        return result;
     }
+
 }
