@@ -15,13 +15,25 @@ public class Application {
                 new OrderCreateService(),
                 new OrderReadService(),
                 new OrderUpdateService(),
-                new OrderDeleteService());
+                new OrderDeleteService(),
+                new OrderProcessService());
         orderFacade.create();
         orderFacade.read();
 
         // TODO: add methods update and delete to facade
         orderFacade.update();
         orderFacade.delete();
+
+        // SOLID
+        // Single responsibility
+        // Open-closed
+        // Liskov
+        // Interface segregation
+        // Dependency inversion
+
+        // modules:
+        // - api - dtos - interfaces
+        // - application/domain - interfaces implementation
     }
 
 }

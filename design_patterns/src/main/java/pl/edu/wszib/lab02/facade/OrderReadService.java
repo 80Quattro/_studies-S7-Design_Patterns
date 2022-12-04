@@ -1,9 +1,12 @@
 package pl.edu.wszib.lab02.facade;
 
-public class OrderReadService {
+import pl.edu.wszib.lab02.facade.api.OrderReadOperation;
+
+public class OrderReadService implements OrderReadOperation {
 
     /** some order (or optional order)**/
-    void read(/** some orderId***/) {
+    @Override
+    public void read(/** some orderId**/) {
 
     }
 
